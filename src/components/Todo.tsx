@@ -37,16 +37,13 @@ export const TodoCard = ({ todo, onDelete, isProcessed }: Props) => {
         ×
       </button>
 
-      <div data-cy="TodoLoader" className="modal overlay">
+      <div
+        data-cy="TodoLoader"
+        className={`modal overlay ${isProcessed ? 'is-active' : ''}`}
+      >
         <div className="modal-background has-background-white-ter" />
         <div className="loader" />
       </div>
-      {isProcessed && (
-        <div className="modal overlay is-active">
-          <div className="modal-background has-background-white-ter" />
-          <div className="loader" />
-        </div>
-      )}
     </div>
   );
 };

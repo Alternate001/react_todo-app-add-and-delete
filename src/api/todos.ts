@@ -8,7 +8,7 @@ export const getTodos = () => {
 };
 
 export const addTodo = (title: string) => {
-  return client.post<Todo>(`/todos?userId=${USER_ID}`, {
+  return client.post<Todo>('/todos', {
     title,
     userId: USER_ID,
     completed: false,

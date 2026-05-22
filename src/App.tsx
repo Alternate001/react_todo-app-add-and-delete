@@ -49,6 +49,8 @@ export const App: React.FC = () => {
       return;
     }
 
+    setErrorMessage(null);
+
     const todoToAdd: Todo = {
       id: 0,
       title: trimmedTitle,
@@ -78,7 +80,9 @@ export const App: React.FC = () => {
       setProcessingIds(prev => prev.filter(pid => pid !== id));
     } catch {
       errorMaker('Unable to delete a todo');
+    } finally {
       setProcessingIds(prev => prev.filter(pid => pid !== id));
+      inputRef.current?.focus();
     }
   };
 
